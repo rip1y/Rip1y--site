@@ -348,6 +348,32 @@
             gap: 1.5rem;
         }
 
+        .contact-links {
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 10px 16px;
+            border: 1px solid #333;
+            border-radius: 999px;
+            background: var(--bg-color);
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+            color: var(--primary-accent);
+        }
+
         .input-group {
             position: relative;
         }
@@ -540,14 +566,23 @@
             </div>
             <button type="submit" class="btn" style="width: 100%; margin: 0;">Send Transmission</button>
         </form>
+        <div class="contact-links">
+            <a class="contact-link" href="https://www.instagram.com/rip1y" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a class="contact-link" href="https://t.me/Sweetdreamstillday" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+        </div>
     </section>
 
     <footer>
         <div class="social-icons">
             <a href="https://youtube.com/@official.rip1y" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/rip1y" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/Sweetdreamstillday" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
         </div>
         <p>&copy; <span id="year"></span> Rip1y | @official.rip1y. All systems operational.</p>
     </footer>
