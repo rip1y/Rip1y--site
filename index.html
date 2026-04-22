@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rip1y | Official Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #050505;
+            --bg-secondary: #111111;
+            --primary-accent: #FF0000;
+            --text-light: #F0F0F0;
+            --text-muted: #A0A0A0;
+            --glass-bg: rgba(17, 17, 17, 0.7);
+            --glass-border: rgba(255, 0, 0, 0.2);
+        }
+
+        /* Base & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-light);
+            transition: 0.3s ease;
+        }
+
+        /* Glass-morphism Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-accent);
+            text-shadow: 0 0 10px var(--primary-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-accent);
+            text-shadow: 0 0 8px var(--primary-accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary-accent);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at center, #1a0000 0%, var(--bg-color) 70%);
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        /* Cyber Tech Logo Profile */
+        .profile-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-accent);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 20px rgba(255, 0, 0, 0.6);
+            background: url('https://via.placeholder.com/180/000000/ff0000?text=R') center/cover; /* Placeholder */
+            position: relative;
+            z-index: 2;
+        }
+
+        .cyber-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed var(--primary-accent);
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0px rgba(255,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-accent);
+            background: transparent;
+            color: var(--text-light);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background: var(--primary-accent);
+            box-shadow: 0 0 20px var(--primary-accent);
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            border-color: var(--text-muted);
+            color: var(--text-muted);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-muted);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--text-muted);
+        }
+
+        /* Sections General */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-accent);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-accent);
+            bottom: -10px;
+            left: 25%;
+            box-shadow: 0 0 10px var(--primary-accent);
+        }
+
+        /* Video Feed Section */
+        #videos {
+            background: var(--bg-secondary);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: var(--bg-color);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+            border-bottom: 2px solid var(--primary-accent);
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .loading-text {
+            text-align: center;
+            grid-column: 1 / -1;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .stats-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-box {
+            background: var(--bg-secondary);
+            border: 1px solid #333;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .stat-box:hover {
+            border-color: var(--primary-accent);
+            box-shadow: inset 0 0 10px rgba(255,0,0,0.2);
+        }
+
+        .stat-box i {
+            font-size: 2rem;
+            color: var(--primary-accent);
+            margin-bottom: 1rem;
+        }
+
+        .stat-box h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--bg-color);
+            border: 1px solid #333;
+            color: var(--text-light);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus, 
+        .input-group textarea:focus {
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+        }
+
+        .input-group textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-secondary);
+            border: 1px solid #333;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-accent);
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 15px var(--primary-accent);
+            transform: translateY(-5px);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(5, 5, 5, 0.95);
+                width: 100%;
+                height: calc(100vh - 70px);
+                text-align: center;
+                padding-top: 3rem;
+                transition: 0.4s ease;
+                border-left: 1px solid var(--glass-border);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .btn {
+                margin-bottom: 10px;
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">Rip1y</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#videos" onclick="toggleMenu()">Latest Videos</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="cyber-ring"></div>
+                <img src="https://via.placeholder.com/180/000000/ff0000?text=R" alt="Rip1y Profile" class="profile-img">
+            </div>
+            <h1>Rip1y</h1>
+            <p>Tech | Gaming | Cyber Culture // @official.rip1y</p>
+            <div>
+                <a href="https://youtube.com/@official.rip1y" target="_blank" class="btn">Subscribe</a>
+                <a href="#videos" class="btn btn-secondary">Watch Content</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="videos">
+        <h2 class="section-title">Latest Transmissions</h2>
+        <div class="video-grid" id="videoContainer">
+            <div class="loading-text">Establishing connection to database... Fetching videos.</div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">System Info</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Accessing mainframe... Identity: <strong>Rip1y</strong>. Content creation protocol initiated. Exploring the bleeding edge of tech, gaming, and digital culture.</p>
+                <br>
+                <p>Welcome to the official hub. Every upload is a carefully crafted transmission designed to entertain, educate, and push the boundaries of what's possible in the digital realm. Join the network and never miss an update.</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <i class="fab fa-youtube"></i>
+                    <h4>HQ</h4>
+                    <p>YouTube Network</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h4>24/7</h4>
+                    <p>Uptime</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-gamepad"></i>
+                    <h4>Level</h4>
+                    <p>Maxed</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-code"></i>
+                    <h4>Status</h4>
+                    <p>Online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Initialize Contact</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message transmission sequence initiated. (Demonstration only)');">
+            <div class="input-group">
+                <input type="text" placeholder="Designation (Name)" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Commlink (Email)" required>
+            </div>
+            <div class="input-group">
+                <textarea placeholder="Transmit Data (Message)..." required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin: 0;">Send Transmission</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://youtube.com/@official.rip1y" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; <span id="year"></span> Rip1y | @official.rip1y. All systems operational.</p>
+    </footer>
+
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Hamburger Menu Toggle
+        const navLinks = document.getElementById('navLinks');
+        const menuIcon = document.getElementById('menuIcon');
+
+        function toggleMenu() {
+            if (window.innerWidth <= 768) {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+        }
+
+        // Fetch YouTube Videos via RSS to JSON
+        async function fetchYouTubeVideos() {
+            const container = document.getElementById('videoContainer');
+            
+            // NOTE: YouTube RSS generally requires a Channel ID (UC...) rather than a handle.
+            // If the standard URL fails due to channel handle updates, you must replace the RSS URL below 
+            // with: https://www.youtube.com/feeds/videos.xml?channel_id=UC_YOUR_EXACT_CHANNEL_ID
+            const rssUrl = 'https://www.youtube.com/feeds/videos.xml?user=official.rip1y'; 
+            
+            // Using rss2json API to convert the XML feed to JSON
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    // Grab latest 3 videos
+                    const latestVideos = data.items.slice(0, 3);
+                    let output = '';
+
+                    latestVideos.forEach(video => {
+                        // Extract video ID from guid (Format: yt:video:VIDEO_ID)
+                        const videoId = video.guid.split(':')[2];
+                        
+                        output += `
+                            <div class="video-card">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/${videoId}" 
+                                    title="${video.title}" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-info">
+                                    <h3>${video.title}</h3>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    container.innerHTML = output;
+                } else {
+                    // Fallback UI if the RSS feed cannot find the handle directly
+                    container.innerHTML = `
+                        <div class="loading-text" style="color: var(--primary-accent); animation: none;">
+                            Warning: Unable to fetch feed via handle.<br>
+                            Replace RSS URL in the script with your exact Channel ID (UC...).
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error("Error fetching videos:", error);
+                container.innerHTML = `<div class="loading-text" style="color: var(--primary-accent); animation: none;">Connection failed. Check network link.</div>`;
+            }
+        }
+
+        // Initialize fetc
