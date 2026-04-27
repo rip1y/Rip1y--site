@@ -11,6 +11,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+
     <style>
         /* CSS Variables */
         :root {
@@ -147,6 +149,16 @@
 
         @keyframes spin {
             100% { transform: rotate(360deg); }
+        }
+
+        .logo-3d-text {
+            width: min(520px, 90vw);
+            height: 160px;
+            margin: 0 auto 1rem;
+            display: block;
+            background: transparent;
+            --poster-color: transparent;
+            filter: drop-shadow(0 0 18px rgba(255, 0, 0, 0.55));
         }
 
         .hero-content h1 {
@@ -477,6 +489,21 @@
                 <div class="cyber-ring"></div>
                 <img src="https://via.placeholder.com/180/000000/ff0000?text=R" alt="Rip1y Profile" class="profile-img">
             </div>
+            <model-viewer
+                class="logo-3d-text"
+                src="assets/3dText.glb"
+                alt="Rip1y 3D logo text"
+                camera-controls
+                touch-action="pan-y"
+                auto-rotate
+                auto-rotate-delay="0"
+                rotation-per-second="20deg"
+                interaction-prompt="none"
+                disable-zoom
+                shadow-intensity="0"
+                exposure="1.1"
+                environment-image="neutral">
+            </model-viewer>
             <h1>Rip1y</h1>
             <p>Tech | Gaming | Cyber Culture // @official.rip1y</p>
             <div>
